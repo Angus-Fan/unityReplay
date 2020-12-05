@@ -31,7 +31,7 @@ public class characterControllerScript : MonoBehaviour
     }
     
     // Update is called once per frame
-    private void FixedUpdate()
+    public void move()
     {
         Vector3 motion = new Vector3(horizontalValue, -2, verticalValue);
         Vector3 rotation = new Vector3(horizontalValue, 0, verticalValue);

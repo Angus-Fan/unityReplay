@@ -10,14 +10,8 @@ public class playerRecorder : MonoBehaviour
     private float horizontalValue;    
     private float verticalValue;
     
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }  
 
-    private void Update()
+    public void getInputs()
     {
 
         horizontalValue = Input.GetAxis("Horizontal");

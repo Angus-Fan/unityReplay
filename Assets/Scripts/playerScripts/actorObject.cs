@@ -63,9 +63,11 @@ public class actorObject : MonoBehaviour
             
             timer = timer + Time.deltaTime;
             timerText.text = timer.ToString("F2");
+            playerInput.getInputs();
             playerInputStruct userInput = playerInput.getInputStruct();
             inputRec.addToDictionary(timer, userInput);            
             objectController.givenInputs(userInput);
+            objectController.move();
             playerInput.resetInput();
         }
 
@@ -83,6 +85,7 @@ public class actorObject : MonoBehaviour
             {
                 playerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
                 objectController.givenInputs(recordedInputs);
+                objectController.move();
             }
 
         }

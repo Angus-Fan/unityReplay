@@ -8,11 +8,13 @@ public struct playerInputStruct
     public float verticalInput;
     public float horizontalInput;
 
+    public bool buttonPressed;
 
-    public playerInputStruct(float horizontalValue, float verticalValue)
+    public playerInputStruct(float horizontalValue, float verticalValue, bool buttonvalue)
     {
         verticalInput = verticalValue;
         horizontalInput = horizontalValue;
+        buttonPressed = buttonvalue;
 
     }
 

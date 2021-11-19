@@ -55,17 +55,21 @@ public class actorObject : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        playerInput.listenForKeyPresses();
+    }
     void FixedUpdate()
     {
 
         if ((int)currentState == 0)
         {
-            
+
             timer = timer + Time.deltaTime;
             timerText.text = timer.ToString("F2");
             playerInput.getInputs();
             playerInputStruct userInput = playerInput.getInputStruct();
-            inputRec.addToDictionary(timer, userInput);            
+            inputRec.addToDictionary(timer, userInput);
             objectController.givenInputs(userInput);
             objectController.move();
             playerInput.resetInput();
@@ -74,11 +78,11 @@ public class actorObject : MonoBehaviour
         if ((int)currentState == 1)
         {
             if (newPlayback == true)
-            {              
+            {
                 playbackTimer = 0;
                 newPlayback = false;
             }
-            
+
             playbackTimer = playbackTimer + Time.deltaTime;
             timerText.text = playbackTimer.ToString("F2");
             if (inputRec.keyExists(playbackTimer))
@@ -94,9 +98,9 @@ public class actorObject : MonoBehaviour
         {
             timer = 0;
             timerText.text = "0.00";
-            
-           
-            
+
+
+
         }
     }
 

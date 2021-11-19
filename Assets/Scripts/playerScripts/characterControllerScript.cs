@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class characterControllerScript : MonoBehaviour
 {
-   
+
 
 
     public bool jump;
@@ -12,6 +12,7 @@ public class characterControllerScript : MonoBehaviour
     private Vector3 initialRotation;
     private float horizontalValue;
     private float verticalValue;
+    private bool buttonValue;
     private GameObject characterGameObject;
 
 
@@ -27,20 +28,25 @@ public class characterControllerScript : MonoBehaviour
         initialPosition = GetComponent<Transform>().position;
         initialRotation = GetComponent<Transform>().rotation.eulerAngles;
         charCont = GetComponent<CharacterController>();
-    
+
     }
-    
+
     // Update is called once per frame
     public void move()
     {
         Vector3 motion = new Vector3(horizontalValue, -2, verticalValue);
         Vector3 rotation = new Vector3(horizontalValue, 0, verticalValue);
-                 
+
+        if (buttonValue == true)
+        {
+            Debug.Log("The button press has been received, do additional functionality here");
+        }
+
         if (rotation.magnitude > 0.1f)
         {
             float targetAngle = Mathf.Atan2(motion.x, motion.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            
+
         }
         //Actual Character Movement
         charCont.Move(motion * moveSpeed);
@@ -52,11 +58,12 @@ public class characterControllerScript : MonoBehaviour
     {
         horizontalValue = inputs.horizontalInput;
         verticalValue = inputs.verticalInput;
+        buttonValue = inputs.buttonPressed;
     }
 
     public void resetInputs()
     {
-        horizontalValue =0;
+        horizontalValue = 0;
         verticalValue = 0;
     }
 
@@ -71,6 +78,6 @@ public class characterControllerScript : MonoBehaviour
         charCont.transform.position = initialPosition;
         charCont.transform.eulerAngles = initialRotation;
         charCont.enabled = true;
-        
+
     }
 }

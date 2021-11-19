@@ -1,6 +1,8 @@
 # Unity Input Recorder & Replayer
 Unity project which is used in the replay video. This system listens for key inputs, records the inputs along with the timestamp where they are pressed. 
 
+![demo](https://user-images.githubusercontent.com/33101170/142538241-a26be52d-3661-40a8-b33a-f4d06bb5b0ba.gif)
+
 # Installation & Setup
 - Download the project files, unzip them, and open it with Unity.
 - Locate the demo scene found at Assets/Scenes/demoScene and open the scene.
@@ -32,6 +34,7 @@ I have noticed that some inputs are skipped when listening for inputs in FixedUp
 ## Player Input Struct
 
 When you have added your new button to the Player Recorder, you must then update the playerInputStruct. This holds the recorded values, so if you need your new inputs to be recorded add a new variable here and modify the playerInputStruct constructor.
+
 ![playerInputStruct](https://user-images.githubusercontent.com/33101170/142534839-1c6482b0-1675-4662-bd51-a7ef159bbd02.PNG)
 
 ## Character Controller Script

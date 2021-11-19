@@ -27,6 +27,7 @@ If you want to add new inputs you must do the following.
 
 ## Player Recorder
 If you want to add new key inputs add them to the **listenForKeyPresses()** function. Do keep in mind that this project uses the Old Unity Input system, you will need to update the code that listens for inputs if you are using the new system.
+
 ![playerRecorder](https://user-images.githubusercontent.com/33101170/142534862-93e1d889-7dc6-4cbd-acd1-dd0b23e83ee6.PNG)
 
 I have noticed that some inputs are skipped when listening for inputs in FixedUpdate, my workaround was to listen for inputs in the Update() loop and then set them when the FixedUpdate() executes. If you can find a workaround please mark it under issues, and I will update the repository. 

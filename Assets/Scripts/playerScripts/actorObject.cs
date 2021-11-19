@@ -55,6 +55,9 @@ public class actorObject : MonoBehaviour
     }
 
     // Update is called once per frame
+    // For button presses I noticed that if they're listened for in the fixed update they are somtimes missed
+    // With this listening in a normal update loop, the button press is set to true. Then when the fixed update
+    // goes over it, it will record the value as true, and then clear it for the next time the button is true.
     void Update()
     {
         playerInput.listenForKeyPresses();
@@ -88,6 +91,10 @@ public class actorObject : MonoBehaviour
             if (inputRec.keyExists(playbackTimer))
             {
                 playerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
+                if (recordedInputs.buttonPressed == true)
+                {
+                    Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.buttonPressed);
+                }
                 objectController.givenInputs(recordedInputs);
                 objectController.move();
             }
